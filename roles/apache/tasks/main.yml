@@ -6,11 +6,7 @@
      state: latest
      update_cache: yes
 
- - name: "install index page"
-   copy:
-     src: index.html
-     dest: /var/www/index.html
-     backup: yes
+
 
  - name: Run expect to wait for a successful PXE boot via out-of-band CIMC
    become: true
@@ -21,3 +17,14 @@
      sudo chown -R ec2-user:apache /var/www
      sudo chmod 2775 /var/www
      find /var/www -type d -exec sudo chmod 2775 {} \;
+
+ - name: "install index page to html"
+   copy:
+     src: index.html
+     dest: /var/www/html/index.html
+     backup: yes
+ - name: "install index page to www"
+   copy:
+     src: index.html
+     dest: /var/www/index.html
+     backup: yes
