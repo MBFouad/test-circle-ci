@@ -1,6 +1,22 @@
 version: 2.1
 # Use a package of configuration called an orb.
 jobs:
+  configure_infrastructure:
+    docker:
+      - image: python:3.7-alpine3.11
+    steps:
+      - checkout
+      - add_ssh_keys:
+          # You can get this ID in the section where you registered the SSH Key
+          fingerprints: ["84:96:f1:09:79:57:7d:18:e5:48:a3:a3:f1:e1:50:15"]
+      - run:
+          name: Install Ansible
+          command: |
+            apk add --update ansible
+      - run:
+          name: Run Playbook and Configure server
+          command: |
+            ansible-playbook -i inventory main.yml
   create_infrastructure:
     docker:
       - image: amazon/aws-cli
@@ -19,4 +35,5 @@ workflows:
   # Name the workflow
   myWorkflow:
     jobs:
-      - create_infrastructure
+      - configure_infrastructure
+#      - create_infrastructure
