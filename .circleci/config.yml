@@ -19,6 +19,9 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
+            chmod 755 .circleci/deploy.sh
+            ssh-keyscan 18.212.22.218 >> ~/.ssh/known_hosts
+            cat ~/.ssh/known_hosts
             ansible-playbook -i inventory main.yml
   create_infrastructure:
     docker:
