@@ -19,8 +19,7 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-            ssh-keyscan 18.212.22.218 >> ~/.ssh/known_hosts
-            cat ~/.ssh/known_hosts
+            ll ~/.ssh
             ansible-playbook -i inventory main.yml
   create_infrastructure:
     docker:
