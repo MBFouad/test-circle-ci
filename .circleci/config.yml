@@ -1,7 +1,7 @@
 version: 2.1
 # Use a package of configuration called an orb.
 orbs:
-  ansible-playbook: orbss/ansible-playbook@0.0.5
+  ansible: orbss/ansible@0.2.3
 jobs:
   configure_infrastructure:
     docker:

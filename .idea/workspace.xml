@@ -25,7 +25,7 @@
         <entry file="file://$PROJECT_DIR$/.circleci/config.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
-              <caret line="3" column="48" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
+              <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -204,12 +204,12 @@
       <option name="presentableId" value="Default" />
       <updated>1660637236074</updated>
       <workItem from="1660637237941" duration="631000" />
-      <workItem from="1660781214245" duration="2430000" />
+      <workItem from="1660781214245" duration="2770000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3061000" />
+    <option name="totallyTimeSpent" value="3401000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="27" width="1846" height="1053" extended-state="6" />
@@ -298,7 +298,7 @@
     <entry file="file://$PROJECT_DIR$/.circleci/config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="3" column="48" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
+          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
         </state>
       </provider>
     </entry>
