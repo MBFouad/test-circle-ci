@@ -19,9 +19,9 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-            ls ~/.ssh
-            ssh-add -K ~/.ssh/id_rsa_8496f10979577d18e548a3a3f1e15015
-            ansible-playbook -i inventory main.yml
+#            ls ~/.ssh
+#            ssh-add -K ~/.ssh/id_rsa_8496f10979577d18e548a3a3f1e15015
+            ansible-playbook -i inventory main.yml --private-key ~/.ssh/id_rsa_8496f10979577d18e548a3a3f1e15015
   create_infrastructure:
     docker:
       - image: amazon/aws-cli
