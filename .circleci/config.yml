@@ -2,8 +2,10 @@ version: 2.1
 # Use a package of configuration called an orb.
 #            ls ~/.ssh
 #            ssh-add -K ~/.ssh/id_rsa_8496f10979577d18e548a3a3f1e15015
-orbs:
-  ansible-playbook: orbss/ansible-playbook@0.0.5
+#            apk add --update ansible
+#            apk add openssh-client
+#orbs:
+#  ansible-playbook: orbss/ansible-playbook@0.0.5
 jobs:
   configure_infrastructure:
     docker:
@@ -17,24 +19,15 @@ jobs:
       - run:
           name: Install Ansible
           command: |
-            apk add --update ansible
-#            apk add openssh-client
+            apk add --no-cache --virtual build-dependencies python3-dev libffi-dev openssl-dev build-base
+            pip3 install --upgrade pip
+            pip3 install ansible
+            apk add openssh-client
+
       - run:
           name: Run Playbook and Configure server
           command: |
             ansible-playbook -i inventory main.yml
-  create_infrastructure:
-    docker:
-      - image: amazon/aws-cli
-    steps:
-      - checkout
-      - run:
-          name: Create Cloudformation Stack
-          command: |
-            aws cloudformation deploy \
-              --template-file template.yml \
-              --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
-              --region us-east-1
 
 # Sequential workflow
 workflows:
@@ -42,4 +35,3 @@ workflows:
   myWorkflow:
     jobs:
       - configure_infrastructure
-#      - create_infrastructure
