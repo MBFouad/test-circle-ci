@@ -73,7 +73,10 @@ jobs:
           # Fail the job intentionally to simulate an error.
           command: |
             return 1
-      - destroy_environment
+      - when:
+          condition: on_fail
+          steps:
+            - destroy_environment
 
 
 # Sequential workflow
@@ -84,6 +87,6 @@ workflows:
    #   - configure_infrastructure
        - create_infrastructure
        - smoke_test_faild:
-          required:
+           requires:
             - create_infrastructure
 
